@@ -156,7 +156,7 @@ function App() {
         onClose={() => setShowModal(false)}
         onSave={handleUpdateExpense}
       />
-      <ToastContainer position="top-right" autoClose={2000} theme='dark'/>
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 }
