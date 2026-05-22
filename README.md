@@ -4,6 +4,13 @@
 
 ---
 
+## 🌐 Live Demo
+
+🔗 https://IrajFatima.github.io/smart-expense-tracker
+
+---
+
+
 ## ✨ Features
 
 | Feature | Description |
