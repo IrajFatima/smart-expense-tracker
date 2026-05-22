@@ -1,52 +1,58 @@
 const STORAGE_KEY = 'expenses';
 
 export const getExpenses = () => {
-    try{
-        const expenses = localStorage.getItem(STORAGE_KEY);
-        return expenses ? JSON.parse(expenses) : [];
-    } catch (error) {
-        console.error('Error fetching expenses:', error);
+    try {
+        const data = localStorage.getItem(STORAGE_KEY);
+        console.log("Loaded expenses:", data);
+        if (!data) return [];
+
+        const parsed = JSON.parse(data);
+
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (err) {
+        console.error("Failed to parse expenses:", err);
         return [];
     }
-}
+};
 
-export const saveExpense = (expense) => {
+export const saveExpenses = (expenses) => {
     try {
-        const expenses = getExpenses();
-        expenses.push(expense);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
     } catch (error) {
-        console.error('Error saving expense:', error);
+        console.error('Save failed:', error);
     }
-}
+};
 
 export const clearExpenses = () => {
-    try {
-        localStorage.removeItem(STORAGE_KEY);       
-    } catch (error) {
-        console.error('Error clearing expenses:', error);
-    }   
-}
+    localStorage.removeItem(STORAGE_KEY);
+};
 
-export const deleteExpense = (id) => {
-    try {
-        const expenses = getExpenses();
-        const updatedExpenses = expenses.filter(expense => expense.id !== id);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedExpenses));
-    } catch (error) {
-        console.error('Error deleting expense:', error);
-    }
-}
+// export const deleteExpenseFromStorage = (id) => {
+//     const expenses = getExpenses();
+//     console.log("deete called : ",expenses);
+//     const updated = expenses.filter(e => e.id !== id);
+//     saveExpenses(updated);
+// };
 
-export const updateExpense = (updatedExpense) => {
-    try {
-        const expenses = getExpenses(); 
-        const index = expenses.findIndex(expense => expense.id === updatedExpense.id);
-        if (index !== -1) {
-            expenses[index] = updatedExpense;
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
-        }
-    } catch (error) {
-        console.error('Error updating expense:', error);
-    }
-}
+// export const updateExpenseInStorage = (updatedExpense) => {
+//     const expenses = getExpenses();
+
+//     const index = expenses.findIndex(e => e.id === updatedExpense.id);
+
+//     if (index !== -1) {
+//         expenses[index] = updatedExpense;
+//         saveExpenses(expenses);
+//     }
+// };
+
+export const getCategories = () => [
+    "Food",
+    "Transportation",
+    "Entertainment",
+    "Utilities",
+    "Healthcare",
+    "Education",
+    "Personal Care",
+    "Miscellaneous",
+    "Other"
+];
