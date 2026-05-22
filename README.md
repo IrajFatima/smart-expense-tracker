@@ -1,16 +1,113 @@
-# React + Vite
+# 💸 Smart Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A persistent, full-featured expense management web app built with **React 19 + Vite + Bootstrap 5**. Track spending, set budgets, filter by category, and keep all your data between sessions — no backend required.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+| Feature | Description |
+|---|---|
+| ➕ Add / Edit / Delete Expenses | Full CRUD on expense entries |
+| 🗂️ Category Filtering | Filter expenses by category in real time |
+| 📊 Budget Tracking | Set a monthly budget and see live remaining balance |
+| 💾 Local Storage Persistence | Data survives page refreshes and browser restarts |
+| 🔔 Toast Notifications | Instant feedback on every action via `react-toastify` |
+| 📱 Responsive UI | Bootstrap 5 grid — works on mobile, tablet, and desktop |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) **v18 or higher**
+- **npm** (comes bundled with Node.js)
+
+### Run in 3 steps
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/IrajFatima/smart-expense-tracker.git
+cd smart-expense-tracker
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
+npm run dev
+```
+
+Then open your browser and visit **http://localhost:5173**
+
+---
+
+## 🏗️ Build for Production
+
+```bash
+npm run build       # Outputs optimised files to /dist
+npm run preview     # Preview the production build locally
+```
+
+---
+
+## 🗂️ Project Structure
+
+```
+smart-expense-tracker/
+├── index.html          # App entry point
+├── package.json        # Dependencies & scripts
+├── vite.config.js      # Vite configuration
+├── eslint.config.js    # ESLint rules
+└── src/
+    ├── main.jsx        # React root mount
+    ├── App.jsx         # Root component & state
+    ├── components/     # UI components
+    └── assets/         # Static assets
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| UI Library | React 19 | Component model, hooks, fast rendering |
+| Build Tool | Vite 8 | Instant HMR, zero-config, ESM-first |
+| Styling | Bootstrap 5 + Bootstrap Icons | Responsive grid, pre-built components |
+| Notifications | react-toastify | Non-intrusive, accessible alerts |
+| Persistence | Browser `localStorage` | Zero-dependency, survives restarts |
+
+---
+
+## 📦 Available Scripts
+
+```bash
+npm run dev       # Start dev server with HMR
+npm run build     # Production build
+npm run preview   # Preview production build
+npm run lint      # Run ESLint
+```
+
+---
+
+## 💡 How Persistence Works
+
+All expense entries and the monthly budget are serialised to **`localStorage`** on every state change. When the app loads, it reads from `localStorage` first — so your data is always there when you come back, even after closing the browser.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m "feat: add your feature"`
+4. Push and open a Pull Request
+
+---
+
+## 📄 License
+
+This project is open source. Feel free to fork and adapt it.
